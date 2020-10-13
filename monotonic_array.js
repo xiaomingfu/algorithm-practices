@@ -21,3 +21,19 @@ function isMonotonic(array) {
   }
   return true;
 }
+
+// O(n) time | O(1) space
+function isMonotonic(array) {
+  // Write your code here.
+  let isIncreasing = true;
+  let isDecreasing = true;
+
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > array[i - 1]) {
+      isDecreasing = false;
+    } else if (array[i] < array[i - 1]) {
+      isIncreasing = false;
+    }
+  }
+  return isIncreasing || isDecreasing;
+}

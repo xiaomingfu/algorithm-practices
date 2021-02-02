@@ -1,12 +1,29 @@
 function isValidSubsequence(array, sequence) {
   // Write your code here.
-  let i = 0;
-  let j = 0;
-  while (i < array.length && j < sequence.length) {
-    if (array[i] === sequence[j]) {
-      j++;
+  // 	O(n) time n is the length of array, O(1) space
+  let seqIdx = 0;
+  let arrIdx = 0;
+  while (arrIdx < array.length && seqIdx < sequence.length) {
+    if (sequence[seqIdx] === array[arrIdx]) {
+      seqIdx++;
     }
-    i++;
+    arrIdx++;
   }
-  return j === sequence.length;
+  return seqIdx === sequence.length;
+}
+
+// solution 2
+
+function isValidSubsequence(array, sequence) {
+  // Write your code here.
+  let seqIdx = 0;
+  for (let n of array) {
+    if (seqIdx === sequence.length) {
+      break;
+    }
+    if (sequence[seqIdx] === n) {
+      seqIdx++;
+    }
+  }
+  return sequence.length === seqIdx;
 }

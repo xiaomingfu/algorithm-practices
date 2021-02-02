@@ -30,15 +30,16 @@ function twoNumberSum(array, targetSum) {
 }
 
 //   solution 3
-// O(n) time | O(n) space
+// 	O(n) time, O(n) space
 function twoNumberSum(array, targetSum) {
-  const nums = {};
+  let dic = {};
+
   for (let num of array) {
-    const m = targetSum - num;
-    if (nums[m]) {
-      return [num, m];
+    let remain = targetSum - num;
+    if (dic[remain]) {
+      return [remain, num];
     }
-    nums[num] = true;
+    dic[num] = true;
   }
   return [];
 }

@@ -13,7 +13,7 @@ function findClosestValueInBst(tree, target) {
 
   if (target > res) {
     let rightRes = findClosestValueInBst(tree.right, target);
-    if (Math.abs(rightRes - target) > Math.abs(res - target)) {
+    if (Math.abs(rightRes - target) < Math.abs(res - target)) {
       res = rightRes;
     }
   }

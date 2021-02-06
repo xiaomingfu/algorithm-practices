@@ -5,9 +5,9 @@ class BinaryTree {
     this.right = null;
   }
 }
-
+// O(n) time, O(n) space
 function branchSums(root) {
-  const res = [];
+  const sums = [];
 
   function dfs(node, ps) {
     if (!node) {
@@ -15,12 +15,12 @@ function branchSums(root) {
     }
     const newPathSum = node.value + ps;
     if (!node.left && !node.right) {
-      res.push(newPathSum);
+      sums.push(newPathSum);
     }
     dfs(node.left, newPathSum);
     dfs(node.right, newPathSum);
   }
 
   dfs(root, 0);
-  return res;
+  return sums;
 }

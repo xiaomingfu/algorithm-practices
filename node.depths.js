@@ -1,5 +1,6 @@
 function nodeDepths(root) {
   // Write your code here.
+  // O(n) time | O(n) space
   if (!root) {
     return 0;
   }

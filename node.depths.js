@@ -22,3 +22,19 @@ function nodeDepths(root) {
   }
   return res;
 }
+
+// second solution
+function nodeDepths(root) {
+  // when the tree is balanced, O(n) time | O(h) space
+  let sumOfDepths = 0;
+
+  function dfs(node, depth) {
+    if (node) {
+      sumOfDepths += depth;
+      dfs(node.left, depth + 1);
+      dfs(node.right, depth + 1);
+    }
+  }
+  dfs(root, 0);
+  return sumOfDepths;
+}

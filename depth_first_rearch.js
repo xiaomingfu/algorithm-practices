@@ -15,6 +15,7 @@ class Node {
 
   depthFirstSearch(array) {
     // Write your code here.
+    // O(v + e) time, O (v) space
     function dfs(node) {
       array.push(node.name);
       for (const ch of node.children) {
@@ -23,6 +24,15 @@ class Node {
     }
 
     dfs(this);
+    return array;
+  }
+
+  // another write way
+  depthFirstSearch(array) {
+    array.push(this.name);
+    for (const ch of this.children) {
+      ch.depthFirstSearch(array);
+    }
     return array;
   }
 }

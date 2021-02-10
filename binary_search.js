@@ -1,5 +1,6 @@
 function binarySearch(array, target) {
   // Write your code here.
+  // O(log(n)) time, O(1) space
   let i = 0;
   let j = array.length - 1;
 

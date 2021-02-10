@@ -5,14 +5,14 @@ function findThreeLargestNumbers(array) {
   let b = -Infinity;
   let c = -Infinity;
   for (let n of array) {
-    if (n >= a) {
+    if (n > a) {
       c = b;
       b = a;
       a = n;
-    } else if (a > n && n >= b) {
+    } else if (n > b) {
       c = b;
       b = n;
-    } else if (b > n && n >= c) {
+    } else if (n > c) {
       c = n;
     }
   }

@@ -16,3 +16,15 @@ function caesarCipherEncryptor(string, key) {
   }
   return res;
 }
+
+// second solution
+
+function caesarCipherEncryptor(string, key) {
+  const alpha = "abcdefghijklmnopqrstuvwxyz";
+  let res = [];
+  for (let letter of string) {
+    const newIdx = (alpha.indexOf(letter) + key) % 26;
+    res.push(alpha[newIdx]);
+  }
+  return res.join("");
+}

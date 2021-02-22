@@ -1,6 +1,5 @@
 // O(n^2) time | O(n) space
 function threeNumberSum(array, targetSum) {
-  // Write your code here.
   array.sort((a, b) => a - b);
   let res = [];
 

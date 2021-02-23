@@ -1,4 +1,4 @@
-// O(nlog(n) + nlog(m)) time | O(1) space
+// O(nlog(n) + mlog(m)) time | O(1) space
 function smallestDifference(arrayOne, arrayTwo) {
   // Write your code here.
   arrayOne.sort((a, b) => a - b);

@@ -1,5 +1,5 @@
 function isMonotonic(array) {
-  // Write your code here.
+  // Write your code here. O(n) time | O(1) space
   if (array.length < 2) {
     return true;
   }

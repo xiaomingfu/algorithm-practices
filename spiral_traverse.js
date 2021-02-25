@@ -1,5 +1,6 @@
 function spiralTraverse(array) {
   // Write your code here.
+  // O(n) time, O(n) space
   let rowStart = 0;
   let rowEnd = array.length - 1;
   let colStart = 0;

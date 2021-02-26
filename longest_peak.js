@@ -1,6 +1,5 @@
 // O(n) time | O(1) space
 function longestPeak(array) {
-  // Write your code here.
   let len = 0;
   let cnt = 0;
   for (let i = 1; i < array.length - 1; i++) {

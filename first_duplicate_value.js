@@ -36,3 +36,14 @@ function firstDuplicateValue(array) {
   }
   return -1;
 }
+// fouth solution
+function firstDuplicateValue(array) {
+  for (const v of array) {
+    const absV = Math.abs(v);
+    if (array[absV - 1] < 0) {
+      return absV;
+    }
+    array[absV - 1] *= -1;
+  }
+  return -1;
+}

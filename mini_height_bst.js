@@ -17,6 +17,22 @@ function miniHeightBst(array) {
   return helper(array, null, 0, array.length - 1);
 }
 
+// second solution
+// O(n) time | O (n) space
+function miniHeightBst(array) {
+  function helper(array, i, j) {
+    if (i > j) {
+      return null;
+    }
+    let mid = Math.floor((i + j) / 2);
+    let bst = new BST(array[mid]);
+    bst.left = helper(array, i, mid - 1);
+    bst.right = helper(array, mid + 1, j);
+    return bst;
+  }
+  return helper(array, 0, array.length - 1);
+}
+
 class BST {
   constructor(value) {
     this.value = value;

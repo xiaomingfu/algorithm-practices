@@ -32,3 +32,31 @@ function riverSizes(matrix) {
   }
   return res;
 }
+
+function explore2(i, j) {
+  let cnt = 1;
+  const queue = [[i, j]];
+  matrix[i][j] = 2;
+  while (queue.length > 0) {
+    const [x, y] = queue.shift();
+    for ([a, b] of [
+      [x + 1, y],
+      [x - 1, y],
+      [x, y - 1],
+      [x, y + 1],
+    ]) {
+      if (
+        a >= 0 &&
+        a < matrix.length &&
+        b >= 0 &&
+        b < matrix[0].length &&
+        matrix[a][b] === 1
+      ) {
+        cnt++;
+        matrix[a][b] = 2;
+        queue.push([a, b]);
+      }
+    }
+  }
+  return cnt;
+}

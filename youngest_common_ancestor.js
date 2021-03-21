@@ -7,29 +7,41 @@ class AncestralTree {
 // O(n) time, O(1) space
 function getYoungestCommonAncestor(topAncestor, descendantOne, descendantTwo) {
   // Write your code here.
-  let cnt_1 = 0;
-  let cnt_2 = 0;
-  let one = descendantOne;
-  let two = descendantTwo;
-  while (one !== topAncestor) {
-    cnt_1++;
-    one = one.ancestor;
+
+  const depthOne = getDepth(descendantOne, topAncestor);
+  const depthTwo = getDepth(descendantTwo, topAncestor);
+  if (depthOne < depthTwo) {
+    return findCommonAncestor(
+      descendantOne,
+      descendantTwo,
+      depthTwo - depthOne
+    );
+  } else {
+    return findCommonAncestor(
+      descendantTwo,
+      descendantOne,
+      depthOne - depthTwo
+    );
   }
-  while (two !== topAncestor) {
-    cnt_2++;
-    two = two.ancestor;
+}
+
+function getDepth(descedant, topAncestor) {
+  let depth = 0;
+  while (descedant !== topAncestor) {
+    depth++;
+    descedant = descedant.ancestor;
   }
-  while (cnt_1 < cnt_2) {
-    descendantTwo = descendantTwo.ancestor;
-    cnt_2--;
+  return depth;
+}
+
+function findCommonAncestor(higherAncestor, lowerAncestor, diff) {
+  while (diff > 0) {
+    lowerAncestor = lowerAncestor.ancestor;
+    diff--;
   }
-  while (cnt_1 > cnt_2) {
-    descendantOne = descendantOne.ancestor;
-    cnt_1--;
+  while (lowerAncestor !== higherAncestor) {
+    lowerAncestor = lowerAncestor.ancestor;
+    higherAncestor = higherAncestor.ancestor;
   }
-  while (descendantOne !== descendantTwo) {
-    descendantOne = descendantOne.ancestor;
-    descendantTwo = descendantTwo.ancestor;
-  }
-  return descendantTwo;
+  return lowerAncestor;
 }

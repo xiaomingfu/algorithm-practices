@@ -23,3 +23,23 @@ function reconstructBst(preOrderTraversalValues) {
 	
 	return new BST(root, left_subTree, right_subTree);
 }
+
+// second solution
+
+function reconstructBst(preOrderTraversalValues) {
+    let i = 0;
+    function helper(lb, hb) {
+        let cur = preOrderTraversalValues[i];
+        if (i === preOrderTraversalValues.length) {
+            return;
+        }
+        if (cur < lb || cur >= hb) {
+            return;
+        }
+        i++;
+        let left_v = helper(lb, cur);
+        let right_v = helper(cur, hb);
+        return new BST(cur, left_v, right_v);
+    }
+    return helper(-Infinity, Infinity);
+}

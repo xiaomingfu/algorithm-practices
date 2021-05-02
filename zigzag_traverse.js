@@ -35,3 +35,24 @@ function zigzagTraverse(array) {
   }
   return res;
 }
+
+// second solution
+function zigzagTraverse(array) {
+  let r = array.length;
+  let c = array[0].length;
+  let res = [];
+  for (let n = 0; n < r + c - 1; n++) {
+    let arr = [];
+    for (let i = 0; i < r; i++) {
+      let j = n - i;
+      if (j >= 0 && j < c) {
+        arr.push(array[i][j]);
+      }
+    }
+    if (n % 2 !== 0) {
+      arr.reverse();
+    }
+    arr.forEach((n) => res.push(n));
+  }
+  return res;
+}

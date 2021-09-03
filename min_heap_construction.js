@@ -16,13 +16,13 @@ class MinHeap {
     while (firstChildIdx <= endIdx) {
       let secondChildIdx = curIdx * 2 + 2 <= endIdx ? curIdx * 2 + 2 : -1;
       let idxSwap;
-      if (secondChildIdx !== -1 && secondChildIdx < firstChildIdx) {
+      if (secondChildIdx !== -1 && heap[secondChildIdx] < heap[firstChildIdx]) {
         idxSwap = secondChildIdx;
       } else {
         idxSwap = firstChildIdx;
       }
       if (heap[idxSwap] < heap[curIdx]) {
-        this.swap(dxSwap, curIdx, heap);
+        this.swap(idxSwap, curIdx, heap);
         curIdx = idxSwap;
         firstChildIdx = curIdx * 2 + 1;
       } else {

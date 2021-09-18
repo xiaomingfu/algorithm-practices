@@ -20,4 +20,14 @@ function mergeSortedArrays(arrays) {
     res = merge(res, arr);
   }
   return res;
+
+  //   second solution
+  /*
+  	while (arrays.length > 1) {
+		let a = arrays.shift();
+		let b = arrays.shift();
+		arrays.push(merge(a, b));
+	}
+		return arrays[0];
+  */
 }

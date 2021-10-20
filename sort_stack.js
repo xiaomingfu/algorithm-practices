@@ -9,7 +9,7 @@ function sortStack(stack) {
 }
 
 function insertSortStack(stack, top) {
-  if (stack.length === 0 || stack[stack.length - 1] < top) {
+  if (stack.length === 0 || stack[stack.length - 1] <= top) {
     stack.push(top);
     return;
   }

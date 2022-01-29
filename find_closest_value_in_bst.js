@@ -23,7 +23,7 @@ function findClosestValueInBst(tree, target) {
 // second method
 function findClosestValueInBst(tree, target) {
   // Write your code here.
-  // average:O(nlog(n)) time, O(nlog(n)) space
+  // average:O(log(n)) time, O(log(n)) space
   // 	worst:O(n) time, O(n) space
   let res = tree.value;
   function dfs(node) {
@@ -61,6 +61,26 @@ function findClosestValueInBst(tree, target) {
       tree = tree.left;
     } else {
       break;
+    }
+  }
+  return res;
+}
+
+function findClosestValueInBst(tree, target) {
+  let cur = tree;
+  let diff = tree.value - target;
+  let res = cur.value;
+  while (cur) {
+    if (cur.value > target) {
+      cur = cur.left;
+    } else if (cur.value < target) {
+      cur = cur.right;
+    } else {
+      return cur.value;
+    }
+    if (diff > cur.value - target) {
+      diff = cur.value - target;
+      res = cur.value;
     }
   }
   return res;

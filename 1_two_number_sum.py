@@ -36,3 +36,11 @@ def twoNumberSum(array, targetSum) :
       dic[num] = True
   return []
 
+# return index of two num
+def twoNumberSum(array, targetSum) :
+  dic = {}
+  for i, n in enumerate(array):
+    diff = targetSum - n
+    if diff in dic:
+      return [i, dic[diff]]
+    dic[n] = i

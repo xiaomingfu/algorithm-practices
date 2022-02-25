@@ -17,3 +17,14 @@ class Solution:
                 if isPalindromic(s[i:j + 1]):
                     cnt += 1
         return cnt
+# second method, expand two pointer
+        cnt = 0
+        for i in range(len(s)):
+            for j, k in [(i, i), (i, i + 1)]:
+                while j >= 0 and k < len(s):
+                    if s[j] == s[k]:
+                        j, k = j - 1, k + 1
+                        cnt += 1
+                    else:
+                        break
+        return cnt

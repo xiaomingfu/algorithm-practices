@@ -11,9 +11,8 @@ class Solution:
         def dfs(node, p, q):
             if not node:
                 return True
-            if node.left and (node.val <= node.left.val or node.left.val <= q):
+            if p < node.val < q:
+                return dfs(node.left, p, node.val) and dfs(node.right, node.val, q)
+            else:
                 return False
-            if node.right and (node.val >= node.right.val or node.right.val >= p):
-                return False
-            return dfs(node.left, node.val, q) and dfs(node.right, p, node.val)
-        return dfs(root, float("inf"), float("-inf"))
+        return dfs(root, float("-inf"), float("inf"))

@@ -6,7 +6,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
+    
 from collections import defaultdict
 class Solution:
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:

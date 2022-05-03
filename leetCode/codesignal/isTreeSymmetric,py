@@ -1,0 +1,19 @@
+#
+# Binary trees are already defined with this interface:
+# class Tree(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.left = None
+#     self.right = None
+def solution(t):
+    if not t:
+        return True
+    def is_symmetric(p, q):
+        if not p and not q:
+            return True
+        if not p or not q:
+            return False
+        if p.value != q.value:
+            return False
+        return is_symmetric(p.left, q.right) and is_symmetric(p.right, q.left)
+    return is_symmetric(t.left, t.right)

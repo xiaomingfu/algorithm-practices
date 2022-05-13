@@ -12,3 +12,5 @@ class Solution:
             if len(st) > 1:
                 res[i] = st[-2][1] - i
         return res
+
+      

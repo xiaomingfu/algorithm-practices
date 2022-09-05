@@ -12,3 +12,14 @@ class Solution:
             return
         root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
         return root
+
+    def dfs(node):
+        if node is None:
+            return
+        temp = node.left
+        node.left = node.right
+        node.right = temp
+        dfs(node.left)
+        dfs(node.right)
+    dfs(root)
+    return root

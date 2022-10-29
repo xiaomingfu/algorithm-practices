@@ -27,16 +27,16 @@ class Solution:
                 n = t
             return r
 
-        def union(a, b):
-            a_p = find(a)
-            b_p = find(b)
-            if a_p != b_p:
-                ids[b_p] = a_p
+        # def union(a, b):
+        #     a_p = find(a)
+        #     b_p = find(b)
+        #     if a_p != b_p:
+        #         ids[b_p] = a_p
                 
         for a, b in edges:
             a_p = find(a)
             b_p = find(b)
             if a_p != b_p:
-                union(a,b)
+                ids[b_p] = a_p
             else:
-                return [a,b]
+                return [a, b]

@@ -24,3 +24,29 @@ class Solution:
                 cnt += 1
                 dfs(v)
         return cnt
+# union-find: O(e)* ª(n)
+        ids = list(range(n)) 
+        cnt = n
+        
+        def find(p):
+            if p != ids[p]:
+                ids[p] = find(ids[p])
+            return ids[p]
+  
+        def union(p, q):
+            rp, rq = find(p), find(q)
+            if rp != rq:
+                ids[rq] = rp
+                nonlocal cnt
+                cnt -= 1
+                
+        for a, b in edges:
+            union(a, b)
+         
+        return cnt
+        # print(ids)
+        # p = set()
+        # for i in range(n):
+        #     p.add(find(i))
+        #     print(p)
+        # return len(p)
